@@ -1,0 +1,155 @@
+{
+  "name": "Shop",
+  "version": "7.0.0",
+  "private": true,
+  "scripts": {
+    "start": "make run",
+    "postinstall": "prettier --write --parser json package.json",
+    "test": "make test",
+    "precommit": "make index-files; lint-staged"
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "1.2.2",
+    "apollo-boost": "0.3.1",
+    "apollo-cache-inmemory": "1.3.11",
+    "apollo-cache-persist": "0.1.1",
+    "buffer": "5.2.1",
+    "deep-extend": "0.6.0",
+    "graphql": "14.0.2",
+    "graphql-tag": "2.10.0",
+    "hoist-non-react-statics": "3.2.1",
+    "i18next": "12.1.0",
+    "i18next-sprintf-postprocessor": "0.2.2",
+    "lodash.clonedeep": "4.5.0",
+    "lodash.debounce": "4.0.8",
+    "lodash.merge": "4.6.1",
+    "lodash.uniqueid": "4.0.1",
+    "prop-types": "15.6.2",
+    "react": "16.8.6",
+    "react-apollo": "2.5.4",
+    "react-native": "0.59.3",
+    "react-native-awesome-card-io": "0.8.1",
+    "react-native-camera": "1.4.3",
+    "react-native-collapsible": "1.4.0",
+    "react-native-custom-tabs": "0.1.7",
+    "react-native-datepicker": "1.7.2",
+    "react-native-device-info": "0.24.3",
+    "react-native-fast-image": "5.2.0",
+    "react-native-firebase": "5.2.2",
+    "react-native-form": "2.1.3",
+    "react-native-gesture-handler": "1.1.0",
+    "react-native-google-analytics-bridge": "6.1.2",
+    "react-native-keyboard-aware-scroll-view": "0.8.0",
+    "react-native-material-kit": "ds8k/react-native-material-kit#4b781c",
+    "react-native-material-ripple": "0.8.0",
+    "react-native-modal": "7.0.2",
+    "react-native-open-settings": "1.0.1",
+    "react-native-photo-view": "ds8k/react-native-photo-view#186f0f",
+    "react-native-picker-select": "6.0.0",
+    "react-native-render-html": "4.1.2",
+    "react-native-safari-view": "2.1.0",
+    "react-native-svg": "8.0.11",
+    "react-native-swipeable": "0.6.0",
+    "react-native-swiper": "1.5.14",
+    "react-native-vector-icons": "6.1.0",
+    "react-native-view-overflow": "0.0.3",
+    "react-native-webview": "5.3.0",
+    "react-navigation": "3.6.1",
+    "react-navigation-slide-from-right-transition": "1.0.4",
+    "recompose": "0.30.0",
+    "tinycolor2": "1.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.0",
+    "@babel/runtime": "^7.4.2",
+    "@storybook/addon-knobs": "4.0.12",
+    "@storybook/addon-ondevice-knobs": "4.1.16",
+    "@storybook/addons": "4.0.12",
+    "@storybook/react-native": "4.0.12",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "24.5.0",
+    "detox": "12.1.0",
+    "docs-core": "0.0.2",
+    "enzyme": "3.7.0",
+    "enzyme-adapter-react-16": "1.7.0",
+    "enzyme-to-json": "3.3.5",
+    "eslint": "5.16.0",
+    "eslint-config-ma-shop-react-native": "0.1.40",
+    "globby": "8.0.1",
+    "husky": "1.2.0",
+    "icon-font-generator": "2.1.8",
+    "jest": "24.5.0",
+    "jest-environment-jsdom": "24.0.0",
+    "jest-environment-jsdom-global": "1.1.0",
+    "jsdom": "13.0.0",
+    "lint-staged": "8.1.0",
+    "merge": "1.2.1",
+    "metro-react-native-babel-preset": "0.53.1",
+    "prettier": "1.15.3",
+    "react-dom": "16.6.3",
+    "react-native-asset": "1.1.2",
+    "react-native-kill-packager": "1.0.0",
+    "react-native-mock-render": "0.1.2",
+    "reactotron-react-native": "2.1.3",
+    "s3fs": "2.5.0",
+    "solidarity": "2.3.1",
+    "unfetch": "4.0.1",
+    "url": "0.11.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "verbose": true,
+    "bail": true,
+    "cache": true,
+    "setupFiles": ["<rootDir>/test/setup.mjs"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "coverageReporters": ["text"],
+    "moduleFileExtensions": ["js", "mjs", "jsx"],
+    "testMatch": ["<rootDir>/test/**/*.test.{js,mjs,jsx}"],
+    "testPathIgnorePatterns": ["/test-ui/"],
+    "transform": {
+      "^.+\\.m?jsx?$": "<rootDir>/node_modules/babel-jest/build/index.js"
+    },
+    "collectCoverageFrom": ["app/**/*.{js,mjs,jsx}"],
+    "coverageDirectory": "coverage"
+  },
+  "lint-staged": {
+    "*": ["./scripts/file-test.js"],
+    "*.+(js|mjs|jsx)": ["eslint --cache --fix"],
+    "*.md": ["prettier --write --parser markdown"],
+    "*.json": ["prettier --write --parser json"]
+  },
+  "eslintConfig": {
+    "extends": "ma-shop-react-native",
+    "globals": {
+      "fetch": false
+    }
+  },
+  "eslintIgnore": ["**/__snapshots__/**/*"],
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false,
+    "arrowParens": "always"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "runner-config": "test-ui/jest-config.json",
+    "specs": "test-ui",
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/Shop.app",
+        "build": "xcodebuild -project ios/Shop.xcodeproj -scheme Shop -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      }
+    }
+  },
+  "rnpm": {
+    "assets": ["./assets/fonts/"]
+  },
+  "engines": {
+    "node": "^8.13.0",
+    "npm": "^6.4.1"
+  }
+}
